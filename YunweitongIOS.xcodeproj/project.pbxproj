@@ -34,6 +34,8 @@
 		0119E8391B37F56F00EE24C2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0119E8381B37F56F00EE24C2 /* LoginViewController.swift */; };
 		0119E83B1B381F6A00EE24C2 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0119E83A1B381F6A00EE24C2 /* RegisterViewController.swift */; };
 		0119E8431B383ECF00EE24C2 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0119E8421B383ECF00EE24C2 /* SwiftyJSON.swift */; };
+		015784B81B3E7A9800D181D0 /* PersonalCetnerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015784B71B3E7A9800D181D0 /* PersonalCetnerTableViewController.swift */; };
+		015784BD1B3E8FE900D181D0 /* ChangePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015784BC1B3E8FE900D181D0 /* ChangePhotoViewController.swift */; };
 		01C00D1C1B3975B1004A3C9F /* HRToast+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C00D1B1B3975B1004A3C9F /* HRToast+UIView.swift */; };
 		01C00D1E1B398373004A3C9F /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C00D1D1B398373004A3C9F /* Regex.swift */; };
 		01C00D211B398915004A3C9F /* RegexUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C00D201B398915004A3C9F /* RegexUtil.swift */; };
@@ -154,6 +156,8 @@
 		0119E8411B383ECF00EE24C2 /* SwiftyJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftyJSON.h; sourceTree = "<group>"; };
 		0119E8421B383ECF00EE24C2 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		0119E8951B38665800EE24C2 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
+		015784B71B3E7A9800D181D0 /* PersonalCetnerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalCetnerTableViewController.swift; sourceTree = "<group>"; };
+		015784BC1B3E8FE900D181D0 /* ChangePhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePhotoViewController.swift; sourceTree = "<group>"; };
 		01C00D1B1B3975B1004A3C9F /* HRToast+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HRToast+UIView.swift"; sourceTree = "<group>"; };
 		01C00D1D1B398373004A3C9F /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Regex.swift; path = YunweitongIOS/Regex.swift; sourceTree = "<group>"; };
 		01C00D201B398915004A3C9F /* RegexUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexUtil.swift; sourceTree = "<group>"; };
@@ -315,6 +319,8 @@
 				0119E83A1B381F6A00EE24C2 /* RegisterViewController.swift */,
 				01C00D271B39ABE9004A3C9F /* PersonalInformationViewController.swift */,
 				010B1EBC1B3AC914005BF990 /* SupplierViewController.swift */,
+				015784B71B3E7A9800D181D0 /* PersonalCetnerTableViewController.swift */,
+				015784BC1B3E8FE900D181D0 /* ChangePhotoViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -530,11 +536,13 @@
 				0119E83B1B381F6A00EE24C2 /* RegisterViewController.swift in Sources */,
 				0119E8391B37F56F00EE24C2 /* LoginViewController.swift in Sources */,
 				01C00D1C1B3975B1004A3C9F /* HRToast+UIView.swift in Sources */,
+				015784B81B3E7A9800D181D0 /* PersonalCetnerTableViewController.swift in Sources */,
 				0119E8431B383ECF00EE24C2 /* SwiftyJSON.swift in Sources */,
 				0119E8371B37E9D500EE24C2 /* MapViewController.swift in Sources */,
 				010B1EB81B3AC178005BF990 /* IdentifyConfig.swift in Sources */,
 				01CD30451B3C4AA00013C8B6 /* BaseUIViewController.swift in Sources */,
 				01C00D211B398915004A3C9F /* RegexUtil.swift in Sources */,
+				015784BD1B3E8FE900D181D0 /* ChangePhotoViewController.swift in Sources */,
 				01C00D281B39ABE9004A3C9F /* PersonalInformationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

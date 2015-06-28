@@ -12,4 +12,6 @@ struct AppConfig {
     
     // 高德地图应用Key
     static let AMApiKey = "fa0e8f8ea116a78bbedd4772848915a7"
+    
+    static let LocationDistanceFilter:Double = 100
 }

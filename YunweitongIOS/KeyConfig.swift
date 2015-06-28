@@ -11,4 +11,8 @@ import Foundation
 struct KeyConfig {
     static let UserInfo: String = "Current user infomation"
     static let UserInfoKey: String = "Current user infomation key"
+    
+    // 从相机或相册抓取图片完成
+    static let PickerImageInfo: String = "Picker image completed"
+    static let PickerImageInfoKey: String = "Picker iamge completed key"
 }

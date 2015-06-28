@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class RegisterViewController: BaseUIViewController {
+class RegisterViewController: UIViewController {
     
     @IBOutlet weak var userNameTextFiled: UITextField!
     
@@ -75,6 +75,7 @@ class RegisterViewController: BaseUIViewController {
                     if json["Status"].boolValue {
                         self.view.makeToast(message: "注册成功")
                         self.saveUserInfo(json["ResultObject"]) // 保存当前登陆用户信息
+                        self.setCurrentUiserID(json["ResultObject"]["ID"].string!)
                         self.performSegueWithIdentifier(IdentifyConfig.Perfect, sender: nil)
                     } else {
                         self.view.makeToast(message: json["ReturnMsg"].string!)

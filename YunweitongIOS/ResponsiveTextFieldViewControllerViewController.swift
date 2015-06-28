@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ResponsiveTextFieldViewController : BaseUIViewController
+class ResponsiveTextFieldViewController : UIViewController
 {
     
     private let kPreferredTextFieldToKeyboardOffset: CGFloat = 20.0

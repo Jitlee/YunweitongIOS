@@ -7,16 +7,23 @@
 //
 
 import UIKit
+import Alamofire
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
 
     var window: UIWindow?
+    private var locationManager:CLLocationManager!
+    var currentUserID: String!
+    var location: CLLocation {
+        return locationManager.location
+    }
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         MAMapServices.sharedServices().apiKey = AppConfig.AMApiKey
+        initLocationManager()
         return true
     }
 
@@ -26,12 +33,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        NSLog("后台运行")
+        setLocationBackground()
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
-        // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+        setLocationForeground()
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
@@ -41,7 +48,74 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
+    
+    // Mark: －定位服务
+    private func initLocationManager() {
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.distanceFilter = AppConfig.LocationDistanceFilter
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        if (UIDevice.currentDevice().systemVersion as NSString).floatValue >= 8.0 {
+            locationManager.requestAlwaysAuthorization()
+        }
+    }
+    
+    private func setLocationForeground() {
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+    }
+    
+    private func setLocationBackground() {
+        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+    }
+    
+    func locationManager(manager: CLLocationManager!, didUpdateToLocation newLocation: CLLocation!, fromLocation oldLocation: CLLocation!) {
+        postLocation(newLocation.coordinate)
+    }
+    
+    private func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        if let location = locations.last as? CLLocation {
+            postLocation(location.coordinate)
+        }
+    }
+    
+    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
+        locationManager.stopUpdatingLocation()
+        if error.code == CLError.Denied.rawValue {
+            NSLog("位置访问拒绝")
+        } else if error.code == CLError.LocationUnknown.rawValue {
+            NSLog("无法获取地理位置信息")
+        }
+    }
+    
+    func startUpdatingLocation() {
+        locationManager.startUpdatingLocation()
+    }
+    
+    func postLocation(coordinate: CLLocationCoordinate2D) {
+        let url = "http://ritacc.net/API/HL.ashx"
+        let parameters = [
+            "action": "sl",
+            "q0": currentUserID,
+            "q1": "\(coordinate.longitude)",
+            "q2": "\(coordinate.latitude)"
+        ]
+        Alamofire.request(.GET, url, parameters: parameters)
+            .responseJSON {
+                (req, res, data, error) in
+                if error != nil {
+                    NSLog("上传坐标网络错误")
+                } else {
+                    let json = JSON(data!)
+                    if !json.isEmpty {
+                        if json["Status"].boolValue {
+                            NSLog("上传坐标正常")
+                        } else {
+                            NSLog(json["ReturnMsg"].string!)
+                        }
+                    }
+                }
+        }
+    }
 
 }
 

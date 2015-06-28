@@ -26,25 +26,34 @@ class MapViewController: UIViewController, MAMapViewDelegate {
     // MARK: － 地图服务
     
     // 位置更新接口
-    func mapView(mapView: MAMapView!, didUpdateUserLocation userLocation: MAUserLocation!, updatingLocation: Bool) {
-        
+    private func mapView(mapView: MAMapView!, didUpdateUserLocation userLocation: MAUserLocation!, updatingLocation: Bool) {
+        if UIApplication.sharedApplication().applicationState == UIApplicationState.Active {
+            let date = NSDate()
+            let dateFormat = NSDateFormatter()
+            dateFormat.timeStyle = .ShortStyle
+            let dateString = dateFormat.stringFromDate(date)
+            let lon = userLocation.location.coordinate.longitude
+            let lat = userLocation.location.coordinate.latitude
+            println("[\(dateString)]V当前位置:\(lon),\(lat)")
+        }
     }
     
-    func initMapView() {
-        self.mapView.setUserTrackingMode(MAUserTrackingMode.Follow, animated: true)
+    private func initMapView() {
+        self.mapView.setUserTrackingMode(MAUserTrackingMode.FollowWithHeading, animated: true)
         self.mapView.showsCompass = false
         self.mapView.showsScale = true
     }
     
-    func activateMapView() {
+    private func activateMapView() {
         self.mapView.showsUserLocation = true
-        self.mapView.userTrackingMode = MAUserTrackingMode.Follow
+        self.mapView.setUserTrackingMode(MAUserTrackingMode.FollowWithHeading, animated: true)
         self.mapView.delegate = self
-        
-        self.mapView.setZoomLevel(16, animated: true)
+        //var app = UIApplication.sharedApplication().delegate as! AppDelegate
+        //self.mapView.setCenterCoordinate(app.location.coordinate, animated: true)
+        //self.mapView.setZoomLevel(16, animated: true)
     }
     
-    func unactivateMapView(){
+    private func unactivateMapView(){
         self.mapView.showsUserLocation = false
         self.mapView.userTrackingMode = MAUserTrackingMode.None
         self.mapView.delegate = nil

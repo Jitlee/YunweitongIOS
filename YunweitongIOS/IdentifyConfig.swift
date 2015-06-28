@@ -16,4 +16,7 @@ struct IdentifyConfig {
     
     // 完善资料
     static let Perfect: String = "完善资料"
+    
+    // 更换头像
+    static let ChangePhoto: String = "更换头像"
 }

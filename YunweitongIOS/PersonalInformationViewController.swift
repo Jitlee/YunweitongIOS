@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class PersonalInformationViewController: BaseUIViewController {
+class PersonalInformationViewController: UIViewController {
     @IBOutlet weak var submitButton: UIBarButtonItem!
     @IBOutlet weak var nameTextField: UITextField!
     
@@ -54,6 +54,9 @@ class PersonalInformationViewController: BaseUIViewController {
                     if !json.isEmpty {
                         if json["Status"].boolValue {
                             self.view.makeToast(message: "提交成功")
+                            // 开启定位功能
+                            var app = UIApplication.sharedApplication().delegate as! AppDelegate
+                            app.startUpdatingLocation()
                             self.performSegueWithIdentifier(IdentifyConfig.Home, sender: nil)
                         } else {
                             self.view.makeToast(message: json["ReturnMsg"].string!)

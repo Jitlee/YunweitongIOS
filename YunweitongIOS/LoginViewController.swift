@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class LoginViewController: BaseUIViewController {
+class LoginViewController: UIViewController {
 
     @IBOutlet weak var userNameTextFiled: UITextField!
     @IBOutlet weak var passwordTextFiled: UITextField!
@@ -78,13 +78,18 @@ class LoginViewController: BaseUIViewController {
                             self.view.makeToast(message: "登录成功")
                             self.saveUserInfo(json["ResultObject"]) // 保存当前登陆用户信息
                             
-                            if json["ResultObject"]["RealName"].string!.isEmpty {
+                            //if json["ResultObject"]["RealName"].string!.isEmpty {
                                 // 进入资料完善界面
-                                self.performSegueWithIdentifier(IdentifyConfig.Perfect, sender: nil)
-                            } else {
+                            //    self.performSegueWithIdentifier(IdentifyConfig.Perfect, sender: nil)
+                            //} else {
+                            
+                                self.setCurrentUiserID(json["ResultObject"]["ID"].string!)
+                                // 开启定位功能
+                                var app = UIApplication.sharedApplication().delegate as! AppDelegate
+                                app.startUpdatingLocation()
                                 // 进入主界面
                                 self.performSegueWithIdentifier(IdentifyConfig.Home, sender: nil)
-                            }
+                            //}
                         } else {
                             self.view.makeToast(message: json["ReturnMsg"].string!)
                         }
