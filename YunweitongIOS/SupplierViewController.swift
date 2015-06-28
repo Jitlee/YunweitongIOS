@@ -69,12 +69,27 @@ class SupplierViewController: ResponsiveTextFieldViewController {
             return
         }
         
-        let userInfo = self.getUserInfo()
+        var userInfo = self.getUserInfo()
+        let userID = userInfo["ID"].string!
+        
+        //println("\(userInfo)")
+        
         let url = "http://ritacc.net/API/YWT_Supplier.ashx"
-        let jsonString = "{ \"Company\": \"\(companyName)\", \"ContactMan\": \"\(contact)\", \"Address\": \"\(companyAddress)\",\"Tel\":\"\(telphoneNumber)\",\"Mobile\":\"\(mobilePhone)\",\"Fax\":\"\(fax)\", \"Email\":\"\(email)\"}"
-        let parameters = ["action": "addupdate",
-            "q0": jsonString,
-            "q1": userInfo["ID"].string!]
+        let companyInfo: JSON = [
+            "ID": "",
+            "Company": companyName,
+            "ContactMan": contact,
+            "Address": companyAddress,
+            "Tel": telphoneNumber,
+            "Mobile": mobilePhone,
+            "Fax": fax,
+            "Email": email
+        ]
+        let parameters = [
+            "action": "addupdate",
+            "q0": "\(companyInfo)",
+            "q1": userID
+        ]
         
         self.view.makeToastActivityWithMessage(message: "请稍候...")
         self.submitButton.enabled = false
@@ -88,8 +103,13 @@ class SupplierViewController: ResponsiveTextFieldViewController {
                 } else {
                     let json = JSON(data!)
                     if !json.isEmpty {
+                        //println("\(json)")
                         if json["Status"].boolValue {
                             self.view.makeToast(message: "提交成功")
+                            userInfo["UserType"].int = 10
+                            userInfo["Company"].string = companyInfo["Company"].string
+                            userInfo["SupplierID"].string = json["ResultObject"].string!
+                            self.saveUserInfo(userInfo)
                             // 开启定位功能
                             var app = UIApplication.sharedApplication().delegate as! AppDelegate
                             app.startUpdatingLocation()

@@ -19,4 +19,7 @@ struct IdentifyConfig {
     
     // 更换头像
     static let ChangePhoto: String = "更换头像"
+    
+    // 性别
+    static let Sex: String = "性别"
 }

@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class RegisterViewController: UIViewController {
+class RegisterTableViewController: UITableViewController {
     
     @IBOutlet weak var userNameTextFiled: UITextField!
     
@@ -28,7 +28,7 @@ class RegisterViewController: UIViewController {
     private var verify: String {
         return verifyTextField.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
     }
-    @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var registerButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -46,7 +46,7 @@ class MapViewController: UIViewController, MAMapViewDelegate {
     
     private func activateMapView() {
         self.mapView.showsUserLocation = true
-        self.mapView.setUserTrackingMode(MAUserTrackingMode.FollowWithHeading, animated: true)
+        self.mapView.setUserTrackingMode(MAUserTrackingMode.Follow, animated: true)
         self.mapView.delegate = self
         //var app = UIApplication.sharedApplication().delegate as! AppDelegate
         //self.mapView.setCenterCoordinate(app.location.coordinate, animated: true)

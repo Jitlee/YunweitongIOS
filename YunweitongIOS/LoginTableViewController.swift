@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class LoginViewController: UIViewController {
+class LoginTableViewController: UITableViewController {
 
     @IBOutlet weak var userNameTextFiled: UITextField!
     @IBOutlet weak var passwordTextFiled: UITextField!
@@ -36,6 +36,7 @@ class LoginViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         self.navigationController?.navigationBarHidden = true
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -77,19 +78,27 @@ class LoginViewController: UIViewController {
                         if json["Status"].boolValue {
                             self.view.makeToast(message: "登录成功")
                             self.saveUserInfo(json["ResultObject"]) // 保存当前登陆用户信息
+                            self.setCurrentUiserID(json["ResultObject"]["ID"].string!)
+                            let userType = json["ResultObject"]["UserType"].int
+                            var isPerfect:Bool = false
+                            if userType == 10 {
+                                let company = json["ResultObject"]["Company"].string!
+                                isPerfect = !company.isEmpty
+                            } else {
+                                let realName = json["ResultObject"]["RealName"].string!
+                                isPerfect = !realName.isEmpty
+                            }
                             
-                            //if json["ResultObject"]["RealName"].string!.isEmpty {
-                                // 进入资料完善界面
-                            //    self.performSegueWithIdentifier(IdentifyConfig.Perfect, sender: nil)
-                            //} else {
-                            
-                                self.setCurrentUiserID(json["ResultObject"]["ID"].string!)
+                            if isPerfect {
                                 // 开启定位功能
                                 var app = UIApplication.sharedApplication().delegate as! AppDelegate
                                 app.startUpdatingLocation()
                                 // 进入主界面
                                 self.performSegueWithIdentifier(IdentifyConfig.Home, sender: nil)
-                            //}
+                            } else {
+                                // 进入资料完善界面
+                                self.performSegueWithIdentifier(IdentifyConfig.Perfect, sender: nil)
+                            }
                         } else {
                             self.view.makeToast(message: json["ReturnMsg"].string!)
                         }
@@ -111,6 +120,9 @@ class LoginViewController: UIViewController {
         }
         
         return true
+    }
+    @IBAction func forget(sender: UIButton) {
+        self.view.makeToast(message: "功能还未开发，敬请期待...")
     }
 
 }

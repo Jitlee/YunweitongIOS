@@ -10,11 +10,12 @@ import UIKit
 import Alamofire
 
 class PersonalCetnerTableViewController:  UITableViewController, UIPopoverPresentationControllerDelegate {
-    @IBOutlet weak var photoCell: UITableViewCell!
-    @IBOutlet weak var photoButton: UIButton!
+    
+    private var userInfo: JSON!
+    
     override func viewDidLoad() {
         photoCell.selectionStyle = UITableViewCellSelectionStyle.None
-        
+        initUserInfo()
         initPhotoManager()
     }
     
@@ -24,9 +25,11 @@ class PersonalCetnerTableViewController:  UITableViewController, UIPopoverPresen
     
     
     // MARK: - 头像处理
+    @IBOutlet weak var photoCell: UITableViewCell!
+    @IBOutlet weak var photoButton: UIButton!
+    
     private func initPhotoManager() {
         // 从服务器下载头像
-        let userInfo = self.getUserInfo()
         if let url = NSURL(string: "http://ritacc.net" + userInfo["UserImg"].string!) {
             if let photoData = NSData(contentsOfURL: url) {
                 if let photoImage = UIImage(data: photoData) {
@@ -108,6 +111,22 @@ class PersonalCetnerTableViewController:  UITableViewController, UIPopoverPresen
         
         // return URLRequestConvertible and NSData
         return (Alamofire.ParameterEncoding.URL.encode(mutableURLRequest, parameters: nil).0, uploadData)
+    }
+    
+    // MARK: -名称
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var userTypeLabel: UILabel!
+    private func initUserInfo() {
+        userInfo = self.getUserInfo()
+        switch userInfo["UserType"].int! {
+            case 10:
+                userTypeLabel.text = "供应商"
+                nameLabel.text = userInfo["Company"].string
+            default:
+                userTypeLabel.text = "运维人员"
+                nameLabel.text = userInfo["RealName"].string
+        }
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
