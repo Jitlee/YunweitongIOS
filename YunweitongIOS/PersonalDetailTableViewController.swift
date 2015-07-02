@@ -33,7 +33,7 @@ class PersonalDetailTableViewController: UITableViewController {
         static let Name: String = "RealName"
         static let Sex: String = "User_Sex"
         static let Phone: String = "Mobile"
-        static let Birthday: String = "Birsthday"
+        static let Birthday: String = "Birthday"
         static let Email: String = "Email"
         static let Province: String = "Location_Province"
         static let City: String = "Location_City"
@@ -66,6 +66,7 @@ class PersonalDetailTableViewController: UITableViewController {
 
         fieldMap = [
             Field.Name: nameLabel,
+            Field.Sex: sexLabel,
             Field.Email: emailLabel,
             Field.Address: addressLabel,
             Field.Education: educationLabel,
@@ -113,7 +114,7 @@ class PersonalDetailTableViewController: UITableViewController {
                     let json = JSON(data!)
                     if !json.isEmpty {
                         if json["Status"].boolValue {
-                            self.id = json["ResultObject"]["ID"].string!
+                            self.id = json["ResultObject"]["YWTUser_ID"].string!
                             self.rendererInfo(json["ResultObject"])
                         } else {
                             self.view.makeToast(message: json["ReturnMsg"].string!)
@@ -194,6 +195,8 @@ class PersonalDetailTableViewController: UITableViewController {
             
         } else if indexPath.section == 0 && indexPath.row == 1 {
             performSegueWithIdentifier(IdentifyConfig.FieldEdit, sender: Field.Name)
+        } else if indexPath.section == 1 && indexPath.row == 1 {
+            performSegueWithIdentifier(IdentifyConfig.FieldEdit, sender: Field.Email)
         }
     }
     
@@ -231,7 +234,7 @@ class PersonalDetailTableViewController: UITableViewController {
             "q1": userID
         ]
         self.view.makeToastActivity()
-        Alamofire.request(.POST, url, parameters: parameters)
+        Alamofire.request(.GET, url, parameters: parameters)
             .responseJSON {
                 (req, res, data, error) in
                 self.view.hideToastActivity()
@@ -240,7 +243,7 @@ class PersonalDetailTableViewController: UITableViewController {
                 } else {
                     let json = JSON(data!)
                     if !json.isEmpty {
-                        if !json["Status"].boolValue {
+                        if json["Status"].boolValue {
                             self.isInfoModified = false
                         } else {
                             self.view.makeToast(message: json["ReturnMsg"].string!)
@@ -255,6 +258,9 @@ class PersonalDetailTableViewController: UITableViewController {
         for (k, l) in fieldMap {
             result[k] = l.text!
         }
+        result[Field.GraduationTime] = "/Date(1435849383)/"
+        result[Field.Birthday] = "/Date(1435849383)/"
+        
         result["YWTUser_ID"] = userID
         return result
     }
