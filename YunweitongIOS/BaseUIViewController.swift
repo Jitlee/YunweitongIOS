@@ -35,7 +35,7 @@ extension UIViewController {
         app.currentUserID = id
     }
     
-    private func saveFile(data: NSData, fileName: String) -> String? {
+    func saveFile(data: NSData, fileName: String) -> String? {
         let fileManager = NSFileManager.defaultManager()
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentationDirectory, .UserDomainMask, true);
         if let dir = paths.first as? String {
@@ -50,6 +50,20 @@ extension UIViewController {
             let filePath = dir.stringByAppendingPathComponent(fileName)
             if fileManager.createFileAtPath(filePath, contents: data, attributes: nil) {
                 return filePath
+            }
+        }
+        return nil
+    }
+    
+    func getFile(fileName: String?) -> NSData? {
+        if let file = fileName {
+            let fileManager = NSFileManager.defaultManager()
+            let paths = NSSearchPathForDirectoriesInDomains(.DocumentationDirectory, .UserDomainMask, true);
+            if let dir = paths.first as? String {
+                let filePath = dir.stringByAppendingPathComponent(file)
+                if fileManager.fileExistsAtPath(filePath) {
+                    return NSData(contentsOfFile: filePath)
+                }
             }
         }
         return nil

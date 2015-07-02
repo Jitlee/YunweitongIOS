@@ -14,5 +14,10 @@ struct KeyConfig {
     
     // 从相机或相册抓取图片完成
     static let PickerImageInfo: String = "Picker image completed"
-    static let PickerImageInfoKey: String = "Picker iamge completed key"
+    static let PickerImageInfoKey: String = "Picker image completed key"
+    
+    // 个人中心修改字段
+    static let FieldChanged: String = "Field Changed"
+    static let FieldChangedKey: String = "Field Changed Key"
+    static let FieldChangedValue: String = "Field Changed Value"
 }

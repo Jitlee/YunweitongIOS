@@ -33,7 +33,8 @@ class PersonalCetnerTableViewController:  UITableViewController, UIPopoverPresen
         if let url = NSURL(string: "http://ritacc.net" + userInfo["UserImg"].string!) {
             if let photoData = NSData(contentsOfURL: url) {
                 if let photoImage = UIImage(data: photoData) {
-                    self.photoButton.setBackgroundImage(photoImage, forState: UIControlState.Normal)
+                    self.photoButton.setBackgroundImage(photoImage, forState: .Normal)
+                    self.saveFile(photoData, fileName: "user.png")
                 }
             }
         }
@@ -146,5 +147,15 @@ class PersonalCetnerTableViewController:  UITableViewController, UIPopoverPresen
     
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         return UIModalPresentationStyle.None
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.section == 0 && indexPath.row == 0 {
+            if userTypeLabel.text == "供应商" {
+                performSegueWithIdentifier(IdentifyConfig.SupplierDetail, sender: self)
+            } else {
+                performSegueWithIdentifier(IdentifyConfig.PersonalDetail, sender: self)
+            }
+        }
     }
 }

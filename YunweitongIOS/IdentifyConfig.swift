@@ -22,4 +22,10 @@ struct IdentifyConfig {
     
     // 性别
     static let Sex: String = "性别"
+    
+    static let SupplierDetail: String = "运维商资料"
+    
+    static let PersonalDetail: String = "个人资料"
+    
+    static let FieldEdit: String = "字段编辑"
 }

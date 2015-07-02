@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 
 // 供应商视图控制器
-class SupplierViewController: ResponsiveTextFieldViewController {
+class SupplierTableViewController: UITableViewController {
 
     @IBOutlet weak var submitButton: UIBarButtonItem!
     @IBOutlet weak var companyNameTextField: UITextField!
@@ -123,15 +123,8 @@ class SupplierViewController: ResponsiveTextFieldViewController {
     }
     
     private func validate() -> Bool{
-        let regex = RegexUtil()
         if companyName.isEmpty {
             self.view.makeToast(message: "请输入公司名称")
-            return false
-        } else if contact.isEmpty{
-            self.view.makeToast(message: "请输入联系人")
-            return false
-        } else if !regex.isPhoneNumber(mobilePhone) {
-            self.view.makeToast(message: "请输入有效的联系人手机号码")
             return false
         }
         
