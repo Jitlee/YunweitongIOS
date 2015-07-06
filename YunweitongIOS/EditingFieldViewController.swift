@@ -12,17 +12,6 @@ class EditingFieldViewController: UIViewController {
 
     @IBOutlet weak var textField: UITextField!
     
-    private var backViewController : UIViewController? {
-        if let controls = self.parentViewController?.navigationController?.viewControllers {
-            for(var i = controls.count - 1; i > -1; i--) {
-                if controls[i] as! UIViewController == self {
-                    return controls[i-1] as? UIViewController
-                }
-            }
-        }
-        return nil
-    }
-    
     var fieldName: String!
     var fieldLabel: String! {
         didSet {

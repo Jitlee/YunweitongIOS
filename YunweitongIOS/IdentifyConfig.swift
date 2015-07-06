@@ -28,4 +28,8 @@ struct IdentifyConfig {
     static let PersonalDetail: String = "个人资料"
     
     static let FieldEdit: String = "字段编辑"
+    
+    static let Management: String = "人员管理"
+    
+    static let AddUser: String = "添加人员"
 }

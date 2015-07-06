@@ -67,6 +67,7 @@ class MapViewController: UIViewController, MAMapViewDelegate {
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         unactivateMapView()
+        
     }
     
 

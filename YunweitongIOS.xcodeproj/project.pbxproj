@@ -37,8 +37,14 @@
 		0119E8431B383ECF00EE24C2 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0119E8421B383ECF00EE24C2 /* SwiftyJSON.swift */; };
 		015784B81B3E7A9800D181D0 /* PersonalCetnerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015784B71B3E7A9800D181D0 /* PersonalCetnerTableViewController.swift */; };
 		015784BD1B3E8FE900D181D0 /* ChangePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015784BC1B3E8FE900D181D0 /* ChangePhotoViewController.swift */; };
+		015AB9881B47C19500440516 /* UserManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015AB9871B47C19500440516 /* UserManagementViewController.swift */; };
+		015AB98C1B47D4E800440516 /* UserManagementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015AB98B1B47D4E800440516 /* UserManagementTableViewCell.swift */; };
 		01880FD51B4179BA004708B1 /* SupplierDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01880FD41B4179BA004708B1 /* SupplierDetailTableViewController.swift */; };
 		01880FD71B417A57004708B1 /* PersonalDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01880FD61B417A57004708B1 /* PersonalDetailTableViewController.swift */; };
+		019A47661B46701800117974 /* CIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019A47621B46701800117974 /* CIColorExtension.swift */; };
+		019A47671B46701800117974 /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019A47641B46701800117974 /* QRCode.swift */; };
+		019A47681B46701800117974 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019A47651B46701800117974 /* UIImageViewExtension.swift */; };
+		019A476A1B46739200117974 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019A47691B46739200117974 /* QRCodeViewController.swift */; };
 		01C00D1C1B3975B1004A3C9F /* HRToast+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C00D1B1B3975B1004A3C9F /* HRToast+UIView.swift */; };
 		01C00D1E1B398373004A3C9F /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C00D1D1B398373004A3C9F /* Regex.swift */; };
 		01C00D211B398915004A3C9F /* RegexUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C00D201B398915004A3C9F /* RegexUtil.swift */; };
@@ -47,6 +53,7 @@
 		01C00D281B39ABE9004A3C9F /* PersonalInformationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C00D271B39ABE9004A3C9F /* PersonalInformationTableViewController.swift */; };
 		01CD30431B3C41530013C8B6 /* KeyConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CD30421B3C41530013C8B6 /* KeyConfig.swift */; };
 		01CD30451B3C4AA00013C8B6 /* BaseUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CD30441B3C4AA00013C8B6 /* BaseUIViewController.swift */; };
+		01D7253E1B497B1700C87DD6 /* UserAddTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D7253D1B497B1700C87DD6 /* UserAddTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,14 +169,23 @@
 		0119E8951B38665800EE24C2 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		015784B71B3E7A9800D181D0 /* PersonalCetnerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalCetnerTableViewController.swift; sourceTree = "<group>"; };
 		015784BC1B3E8FE900D181D0 /* ChangePhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePhotoViewController.swift; sourceTree = "<group>"; };
+		015AB9871B47C19500440516 /* UserManagementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManagementViewController.swift; sourceTree = "<group>"; };
+		015AB98B1B47D4E800440516 /* UserManagementTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManagementTableViewCell.swift; sourceTree = "<group>"; };
 		01880FD41B4179BA004708B1 /* SupplierDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupplierDetailTableViewController.swift; sourceTree = "<group>"; };
 		01880FD61B417A57004708B1 /* PersonalDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalDetailTableViewController.swift; sourceTree = "<group>"; };
+		019A47621B46701800117974 /* CIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CIColorExtension.swift; sourceTree = "<group>"; };
+		019A47631B46701800117974 /* QRCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCode.h; sourceTree = "<group>"; };
+		019A47641B46701800117974 /* QRCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
+		019A47651B46701800117974 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
+		019A47691B46739200117974 /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
+		019A476B1B467CD000117974 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		01C00D1B1B3975B1004A3C9F /* HRToast+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HRToast+UIView.swift"; sourceTree = "<group>"; };
 		01C00D1D1B398373004A3C9F /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Regex.swift; path = YunweitongIOS/Regex.swift; sourceTree = "<group>"; };
 		01C00D201B398915004A3C9F /* RegexUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexUtil.swift; sourceTree = "<group>"; };
 		01C00D271B39ABE9004A3C9F /* PersonalInformationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInformationTableViewController.swift; sourceTree = "<group>"; };
 		01CD30421B3C41530013C8B6 /* KeyConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyConfig.swift; sourceTree = "<group>"; };
 		01CD30441B3C4AA00013C8B6 /* BaseUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseUIViewController.swift; sourceTree = "<group>"; };
+		01D7253D1B497B1700C87DD6 /* UserAddTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAddTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,7 +252,6 @@
 			children = (
 				0119E80C1B37E25100EE24C2 /* Configuration */,
 				0119E8441B383F6600EE24C2 /* Util */,
-				0119E8311B37E6F300EE24C2 /* Views */,
 				0119E82E1B37E4D200EE24C2 /* Controllers */,
 				0119E7F01B37E20600EE24C2 /* Main.storyboard */,
 				0119E7F31B37E20600EE24C2 /* Images.xcassets */,
@@ -287,6 +302,8 @@
 		0119E8121B37E31A00EE24C2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				019A476B1B467CD000117974 /* AVFoundation.framework */,
+				019A47551B466FB100117974 /* QRCode */,
 				01C00D1F1B3988C4004A3C9F /* Regex */,
 				01C00D171B39759A004A3C9F /* Tomast */,
 				0119E8571B38634300EE24C2 /* Alamofire */,
@@ -319,19 +336,13 @@
 		0119E82E1B37E4D200EE24C2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				015AB9831B47C10A00440516 /* UserManagement */,
 				010B1EBF1B3AD73E005BF990 /* Extensions */,
 				01880FD81B417AA0004708B1 /* Login */,
 				01880FD91B417ABD004708B1 /* PersonalCenter */,
 				0119E8361B37E9D500EE24C2 /* MapViewController.swift */,
 			);
 			name = Controllers;
-			sourceTree = "<group>";
-		};
-		0119E8311B37E6F300EE24C2 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Views;
 			sourceTree = "<group>";
 		};
 		0119E83C1B383D1300EE24C2 /* JSON */ = {
@@ -370,6 +381,16 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		015AB9831B47C10A00440516 /* UserManagement */ = {
+			isa = PBXGroup;
+			children = (
+				015AB9871B47C19500440516 /* UserManagementViewController.swift */,
+				015AB98B1B47D4E800440516 /* UserManagementTableViewCell.swift */,
+				01D7253D1B497B1700C87DD6 /* UserAddTableViewController.swift */,
+			);
+			name = UserManagement;
+			sourceTree = "<group>";
+		};
 		01880FD81B417AA0004708B1 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -389,8 +410,20 @@
 				01880FD41B4179BA004708B1 /* SupplierDetailTableViewController.swift */,
 				01880FD61B417A57004708B1 /* PersonalDetailTableViewController.swift */,
 				0115C8B71B441BE500F34B81 /* EditingFieldViewController.swift */,
+				019A47691B46739200117974 /* QRCodeViewController.swift */,
 			);
 			name = PersonalCenter;
+			sourceTree = "<group>";
+		};
+		019A47551B466FB100117974 /* QRCode */ = {
+			isa = PBXGroup;
+			children = (
+				019A47621B46701800117974 /* CIColorExtension.swift */,
+				019A47631B46701800117974 /* QRCode.h */,
+				019A47641B46701800117974 /* QRCode.swift */,
+				019A47651B46701800117974 /* UIImageViewExtension.swift */,
+			);
+			name = QRCode;
 			sourceTree = "<group>";
 		};
 		01C00D171B39759A004A3C9F /* Tomast */ = {
@@ -553,19 +586,26 @@
 			files = (
 				0119E80E1B37E28C00EE24C2 /* AppConfig.swift in Sources */,
 				010B1EC11B3AD759005BF990 /* ResponsiveTextFieldViewControllerViewController.swift in Sources */,
+				015AB9881B47C19500440516 /* UserManagementViewController.swift in Sources */,
 				01C00D1E1B398373004A3C9F /* Regex.swift in Sources */,
+				015AB98C1B47D4E800440516 /* UserManagementTableViewCell.swift in Sources */,
 				010B1EBD1B3AC914005BF990 /* SupplierTableViewController.swift in Sources */,
+				019A476A1B46739200117974 /* QRCodeViewController.swift in Sources */,
 				01880FD71B417A57004708B1 /* PersonalDetailTableViewController.swift in Sources */,
 				0119E8111B37E2F000EE24C2 /* tmp.mm in Sources */,
 				0115C8B81B441BE500F34B81 /* EditingFieldViewController.swift in Sources */,
 				0119E7ED1B37E20600EE24C2 /* AppDelegate.swift in Sources */,
+				019A47671B46701800117974 /* QRCode.swift in Sources */,
 				01CD30431B3C41530013C8B6 /* KeyConfig.swift in Sources */,
 				0119E83B1B381F6A00EE24C2 /* RegisterTableViewController.swift in Sources */,
 				0119E8391B37F56F00EE24C2 /* LoginTableViewController.swift in Sources */,
 				01C00D1C1B3975B1004A3C9F /* HRToast+UIView.swift in Sources */,
 				015784B81B3E7A9800D181D0 /* PersonalCetnerTableViewController.swift in Sources */,
+				019A47681B46701800117974 /* UIImageViewExtension.swift in Sources */,
 				0119E8431B383ECF00EE24C2 /* SwiftyJSON.swift in Sources */,
 				0119E8371B37E9D500EE24C2 /* MapViewController.swift in Sources */,
+				01D7253E1B497B1700C87DD6 /* UserAddTableViewController.swift in Sources */,
+				019A47661B46701800117974 /* CIColorExtension.swift in Sources */,
 				010B1EB81B3AC178005BF990 /* IdentifyConfig.swift in Sources */,
 				01CD30451B3C4AA00013C8B6 /* BaseUIViewController.swift in Sources */,
 				01880FD51B4179BA004708B1 /* SupplierDetailTableViewController.swift in Sources */,
