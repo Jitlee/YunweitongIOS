@@ -1332,8 +1332,8 @@
                                                         <constraint firstAttribute="height" constant="32" id="5Lo-2b-el2"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="设置" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxY-0I-34H">
-                                                    <rect key="frame" x="55" y="14" width="34" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="修改密码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxY-0I-34H">
+                                                    <rect key="frame" x="55" y="14" width="68" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1346,6 +1346,9 @@
                                                 <constraint firstAttribute="centerY" secondItem="ZeM-dY-hCC" secondAttribute="centerY" id="syE-sd-64l"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="0V5-5J-fOP" kind="show" identifier="修改密码" id="T7K-lu-oyY"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -1363,10 +1366,10 @@
                                                         <constraint firstAttribute="height" constant="32" id="tBK-Sw-Lve"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="设置" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tBR-d5-7ru">
-                                                    <rect key="frame" x="55" y="14" width="34" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注销登出" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tBR-d5-7ru">
+                                                    <rect key="frame" x="55" y="14" width="68" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -1377,6 +1380,9 @@
                                                 <constraint firstAttribute="centerY" secondItem="QAx-Gi-iUO" secondAttribute="centerY" id="Wjc-Au-S7r"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="XHe-u4-oqc" kind="presentation" id="Rh3-8C-nnq"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -1901,7 +1907,73 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="270-VU-4f5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4945" y="2330"/>
+            <point key="canvasLocation" x="6039" y="3449"/>
+        </scene>
+        <!--修改密码-->
+        <scene sceneID="SfD-Ww-bud">
+            <objects>
+                <viewController id="VdX-lc-grC" customClass="ChangePasswordViewController" customModule="YunweitongIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2nv-2y-k3R"/>
+                        <viewControllerLayoutGuide type="bottom" id="HAa-03-i9n"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lcB-vS-zNI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入旧密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tlL-yd-3jS">
+                                <rect key="frame" x="75" y="72" width="509" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="旧密码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eeU-XJ-JxE">
+                                <rect key="frame" x="16" y="76" width="51" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入新密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="py9-WI-Jit">
+                                <rect key="frame" x="75" y="110" width="509" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新密码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n7y-Tz-CaX">
+                                <rect key="frame" x="16" y="114" width="51" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="py9-WI-Jit" firstAttribute="top" secondItem="tlL-yd-3jS" secondAttribute="bottom" constant="8" symbolic="YES" id="4OS-6N-nu4"/>
+                            <constraint firstItem="eeU-XJ-JxE" firstAttribute="centerY" secondItem="tlL-yd-3jS" secondAttribute="centerY" id="4e3-f1-Tn4"/>
+                            <constraint firstItem="py9-WI-Jit" firstAttribute="trailing" secondItem="lcB-vS-zNI" secondAttribute="trailingMargin" id="5ln-oJ-y4i"/>
+                            <constraint firstItem="n7y-Tz-CaX" firstAttribute="centerY" secondItem="py9-WI-Jit" secondAttribute="centerY" constant="-0.5" id="AsF-Mz-at1"/>
+                            <constraint firstItem="tlL-yd-3jS" firstAttribute="trailing" secondItem="lcB-vS-zNI" secondAttribute="trailingMargin" id="C52-ZI-6qO"/>
+                            <constraint firstItem="tlL-yd-3jS" firstAttribute="top" secondItem="2nv-2y-k3R" secondAttribute="bottom" constant="8" symbolic="YES" id="CGr-jF-X8P"/>
+                            <constraint firstItem="eeU-XJ-JxE" firstAttribute="leading" secondItem="lcB-vS-zNI" secondAttribute="leadingMargin" id="ZeR-ab-sgo"/>
+                            <constraint firstItem="py9-WI-Jit" firstAttribute="leading" secondItem="n7y-Tz-CaX" secondAttribute="trailing" constant="8" symbolic="YES" id="fOw-qs-4ic"/>
+                            <constraint firstItem="n7y-Tz-CaX" firstAttribute="width" secondItem="eeU-XJ-JxE" secondAttribute="width" id="hYv-Mf-fUb"/>
+                            <constraint firstItem="n7y-Tz-CaX" firstAttribute="leading" secondItem="lcB-vS-zNI" secondAttribute="leadingMargin" id="uoA-J4-bTV"/>
+                            <constraint firstItem="tlL-yd-3jS" firstAttribute="leading" secondItem="eeU-XJ-JxE" secondAttribute="trailing" constant="8" symbolic="YES" id="yHL-hp-Scv"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="修改密码" id="BhL-5H-mVs">
+                        <barButtonItem key="rightBarButtonItem" title="提交" id="Dhw-IZ-wba">
+                            <connections>
+                                <action selector="submit:" destination="VdX-lc-grC" id="DaE-gz-cgd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="newPasswordTextField" destination="py9-WI-Jit" id="BSS-Rh-bku"/>
+                        <outlet property="oldPasswordTextField" destination="tlL-yd-3jS" id="QJZ-AO-TCI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QVk-PB-zA8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2987" y="3391"/>
         </scene>
         <!--更换头像-->
         <scene sceneID="5fq-Do-MeI">
@@ -1970,7 +2042,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qB5-cc-BlP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2855" y="3193"/>
+            <point key="canvasLocation" x="3667" y="3193"/>
         </scene>
         <!--个人信息导航-->
         <scene sceneID="BeS-VM-KYM">
@@ -2334,7 +2406,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kWc-V1-vf5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5051" y="2566"/>
+            <point key="canvasLocation" x="4942" y="3666"/>
         </scene>
         <!--二维码名片导航窗体-->
         <scene sceneID="o2H-hE-IgN">
@@ -2391,6 +2463,24 @@
             </objects>
             <point key="canvasLocation" x="526" y="3116"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="rLL-UG-Qxs">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0V5-5J-fOP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lgW-7q-rit">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="VdX-lc-grC" kind="relationship" relationship="rootViewController" id="FoP-Kq-W8k"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="krl-eN-eVV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2175" y="3391"/>
+        </scene>
     </scenes>
     <resources>
         <image name="default-user" width="177" height="177"/>
@@ -2400,6 +2490,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="d06-qh-cQT"/>
         <segue reference="kYb-ZG-9PG"/>
-        <segue reference="bSX-9f-fn1"/>
+        <segue reference="Q33-7D-0gK"/>
     </inferredMetricsTieBreakers>
 </document>

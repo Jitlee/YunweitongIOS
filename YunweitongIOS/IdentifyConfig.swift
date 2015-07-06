@@ -32,4 +32,6 @@ struct IdentifyConfig {
     static let Management: String = "人员管理"
     
     static let AddUser: String = "添加人员"
+    
+    static let ChangePassword: String = "修改密码"
 }

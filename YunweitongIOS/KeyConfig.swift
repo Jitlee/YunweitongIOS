@@ -19,5 +19,4 @@ struct KeyConfig {
     // 个人中心修改字段
     static let FieldChanged: String = "Field Changed"
     static let FieldChangedKey: String = "Field Changed Key"
-    static let FieldChangedValue: String = "Field Changed Value"
-}
+    static let FieldChangedValue: String = "Field Changed Value"}
