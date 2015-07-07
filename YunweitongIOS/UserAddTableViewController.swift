@@ -81,10 +81,12 @@ class UserAddTableViewController: UITableViewController {
         
         var userInfo = self.getUserInfo()
         let userID = userInfo["ID"].string!
+        let supplierID = userInfo["SupplierID"].string!
         let url = "http://ritacc.net/API/YWT_User.ashx"
         let _userInfo: JSON = [
             "User": [
                 "Mobile": phone,
+                "SupplierID": supplierID,
                 "Password": password
             ],
             "UserInfo": [

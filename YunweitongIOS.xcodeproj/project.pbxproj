@@ -36,6 +36,8 @@
 		0119E83B1B381F6A00EE24C2 /* RegisterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0119E83A1B381F6A00EE24C2 /* RegisterTableViewController.swift */; };
 		0119E8431B383ECF00EE24C2 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0119E8421B383ECF00EE24C2 /* SwiftyJSON.swift */; };
 		012992BD1B4ADD6A0090E839 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012992BC1B4ADD6A0090E839 /* ChangePasswordViewController.swift */; };
+		014D57731B4C0C240076BDF2 /* AuthCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014D57721B4C0C240076BDF2 /* AuthCollectionViewController.swift */; };
+		014D57781B4C2A240076BDF2 /* AuthCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014D57771B4C2A240076BDF2 /* AuthCollectionViewCell.swift */; };
 		015784B81B3E7A9800D181D0 /* PersonalCetnerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015784B71B3E7A9800D181D0 /* PersonalCetnerTableViewController.swift */; };
 		015784BD1B3E8FE900D181D0 /* ChangePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015784BC1B3E8FE900D181D0 /* ChangePhotoViewController.swift */; };
 		015AB9881B47C19500440516 /* UserManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015AB9871B47C19500440516 /* UserManagementViewController.swift */; };
@@ -169,6 +171,8 @@
 		0119E8421B383ECF00EE24C2 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		0119E8951B38665800EE24C2 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		012992BC1B4ADD6A0090E839 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		014D57721B4C0C240076BDF2 /* AuthCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthCollectionViewController.swift; sourceTree = "<group>"; };
+		014D57771B4C2A240076BDF2 /* AuthCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthCollectionViewCell.swift; sourceTree = "<group>"; };
 		015784B71B3E7A9800D181D0 /* PersonalCetnerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalCetnerTableViewController.swift; sourceTree = "<group>"; };
 		015784BC1B3E8FE900D181D0 /* ChangePhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePhotoViewController.swift; sourceTree = "<group>"; };
 		015AB9871B47C19500440516 /* UserManagementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManagementViewController.swift; sourceTree = "<group>"; };
@@ -414,6 +418,8 @@
 				0115C8B71B441BE500F34B81 /* EditingFieldViewController.swift */,
 				019A47691B46739200117974 /* QRCodeViewController.swift */,
 				012992BC1B4ADD6A0090E839 /* ChangePasswordViewController.swift */,
+				014D57721B4C0C240076BDF2 /* AuthCollectionViewController.swift */,
+				014D57771B4C2A240076BDF2 /* AuthCollectionViewCell.swift */,
 			);
 			name = PersonalCenter;
 			sourceTree = "<group>";
@@ -602,6 +608,7 @@
 				012992BD1B4ADD6A0090E839 /* ChangePasswordViewController.swift in Sources */,
 				01CD30431B3C41530013C8B6 /* KeyConfig.swift in Sources */,
 				0119E83B1B381F6A00EE24C2 /* RegisterTableViewController.swift in Sources */,
+				014D57731B4C0C240076BDF2 /* AuthCollectionViewController.swift in Sources */,
 				0119E8391B37F56F00EE24C2 /* LoginTableViewController.swift in Sources */,
 				01C00D1C1B3975B1004A3C9F /* HRToast+UIView.swift in Sources */,
 				015784B81B3E7A9800D181D0 /* PersonalCetnerTableViewController.swift in Sources */,
@@ -610,6 +617,7 @@
 				0119E8371B37E9D500EE24C2 /* MapViewController.swift in Sources */,
 				01D7253E1B497B1700C87DD6 /* UserAddTableViewController.swift in Sources */,
 				019A47661B46701800117974 /* CIColorExtension.swift in Sources */,
+				014D57781B4C2A240076BDF2 /* AuthCollectionViewCell.swift in Sources */,
 				010B1EB81B3AC178005BF990 /* IdentifyConfig.swift in Sources */,
 				01CD30451B3C4AA00013C8B6 /* BaseUIViewController.swift in Sources */,
 				01880FD51B4179BA004708B1 /* SupplierDetailTableViewController.swift in Sources */,
