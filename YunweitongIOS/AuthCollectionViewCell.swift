@@ -11,5 +11,11 @@ import UIKit
 class AuthCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageButton: UIButton!
     @IBOutlet weak var imageTitle: UILabel!
-    
+    var action: ((row: Int, sender: UIButton)->Void)?
+    var row: Int = 0
+    @IBAction func pick(sender: UIButton) {
+        if nil != action {
+            action!(row: row, sender: sender)
+        }
+    }
 }

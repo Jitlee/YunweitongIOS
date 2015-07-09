@@ -11,6 +11,7 @@ import Alamofire
 
 class PersonalCetnerTableViewController:  UITableViewController, UIPopoverPresentationControllerDelegate {
     
+    @IBOutlet weak var authLabel: UILabel!
     private var userInfo: JSON!
     
     override func viewDidLoad() {
@@ -47,7 +48,7 @@ class PersonalCetnerTableViewController:  UITableViewController, UIPopoverPresen
                 
                 let imageData = UIImagePNGRepresentation(image)
                 let userID = self.getCurrentUserID()
-                let url = "http://ritacc.net/API/YWT_UPFile.ashx"
+                let url = "http://ritacc.net/API/YWT_UPUserFile.ashx"
                 let parameters:Dictionary<String, String>  = [
                     "action": "userimg",
                     "q0": userID,
@@ -121,11 +122,13 @@ class PersonalCetnerTableViewController:  UITableViewController, UIPopoverPresen
         userInfo = self.getUserInfo()
         switch userInfo["UserType"].int! {
             case 10:
-                userTypeLabel.text = "供应商"
+                userTypeLabel.text = "运维商"
                 nameLabel.text = userInfo["Company"].string
+                authLabel.text = "企业资质认证"
             default:
                 userTypeLabel.text = "运维人员"
                 nameLabel.text = userInfo["RealName"].string
+                authLabel.text = "个人资质认证"
         }
         
     }

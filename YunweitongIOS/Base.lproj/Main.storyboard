@@ -58,7 +58,7 @@
             </objects>
             <point key="canvasLocation" x="-183" y="1613"/>
         </scene>
-        <!--User Management View Controller-->
+        <!--人员管理-->
         <scene sceneID="gRg-BE-fAh">
             <objects>
                 <viewController id="koe-ED-GZK" customClass="UserManagementViewController" customModule="YunweitongIOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -70,9 +70,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Ly5-HB-Hv6">
-                                <rect key="frame" x="16" y="72" width="568" height="479"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ly5-HB-Hv6">
+                                <rect key="frame" x="16" y="0.0" width="568" height="551"/>
+                                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="人员管理" id="rlC-aP-S7K" customClass="UserManagementTableViewCell" customModule="YunweitongIOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="568" height="44"/>
@@ -101,13 +101,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Ly5-HB-Hv6" firstAttribute="trailing" secondItem="vUl-cu-IME" secondAttribute="trailingMargin" id="16E-cU-qtE"/>
-                            <constraint firstItem="Ly5-HB-Hv6" firstAttribute="bottom" secondItem="Tc5-u3-j39" secondAttribute="top" id="Vjo-fr-p5I"/>
-                            <constraint firstItem="Ly5-HB-Hv6" firstAttribute="top" secondItem="Dls-Hc-muq" secondAttribute="bottom" constant="8" symbolic="YES" id="fkI-qb-8Zb"/>
-                            <constraint firstItem="Ly5-HB-Hv6" firstAttribute="leading" secondItem="vUl-cu-IME" secondAttribute="leadingMargin" id="v5G-fY-n8h"/>
+                            <constraint firstItem="Ly5-HB-Hv6" firstAttribute="trailing" secondItem="vUl-cu-IME" secondAttribute="trailingMargin" id="7ax-DG-G8d"/>
+                            <constraint firstItem="Ly5-HB-Hv6" firstAttribute="top" secondItem="vUl-cu-IME" secondAttribute="top" id="OTC-XW-LXK"/>
+                            <constraint firstItem="Ly5-HB-Hv6" firstAttribute="bottom" secondItem="Tc5-u3-j39" secondAttribute="top" id="hbH-zm-uyZ"/>
+                            <constraint firstItem="Ly5-HB-Hv6" firstAttribute="leading" secondItem="vUl-cu-IME" secondAttribute="leadingMargin" id="xFk-wI-A01"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="C5m-X5-nsB">
+                    <navigationItem key="navigationItem" title="人员管理" id="C5m-X5-nsB">
                         <barButtonItem key="rightBarButtonItem" title="..." id="FSF-Vt-cMx">
                             <connections>
                                 <action selector="showMenu:" destination="koe-ED-GZK" id="nSD-j6-Jix"/>
@@ -1397,6 +1397,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="个人中心" id="QbZ-dB-UAf"/>
                     <connections>
+                        <outlet property="authLabel" destination="s8x-3g-sCG" id="J6Y-2h-k8n"/>
                         <outlet property="nameLabel" destination="g5G-Li-xol" id="Jel-jK-0Kb"/>
                         <outlet property="photoButton" destination="Fqu-rx-dMJ" id="bOk-LL-Gmf"/>
                         <outlet property="photoCell" destination="Dum-Op-93l" id="RQ3-oj-bhK"/>
@@ -2045,7 +2046,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qB5-cc-BlP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4479" y="3193"/>
+            <point key="canvasLocation" x="2435" y="3205"/>
         </scene>
         <!--个人信息导航-->
         <scene sceneID="BeS-VM-KYM">
@@ -2533,6 +2534,9 @@
                                             <state key="normal" backgroundImage="auth">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="pick:" destination="qkI-wv-g4p" eventType="touchUpInside" id="pNh-Vb-GYg"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xT3-ff-FOi">
                                             <rect key="frame" x="69" y="149" width="42" height="21"/>
@@ -2580,8 +2584,8 @@
         <image name="setting" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="d06-qh-cQT"/>
         <segue reference="kYb-ZG-9PG"/>
+        <segue reference="d06-qh-cQT"/>
         <segue reference="Q33-7D-0gK"/>
     </inferredMetricsTieBreakers>
 </document>

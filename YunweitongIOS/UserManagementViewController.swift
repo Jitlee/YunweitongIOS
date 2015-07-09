@@ -12,11 +12,16 @@ import Alamofire
 class UserManagementViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UIPopoverPresentationControllerDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    private var data = [String: [JSON]]()
+    
+    private let headers = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "*"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        tableView.delegate = self
+        tableView.dataSource = self
         loadData()
     }
 
@@ -25,12 +30,44 @@ class UserManagementViewController: UIViewController, UITableViewDelegate, UITab
         // Dispose of any resources that can be recreated.
     }
     
+    func sectionIndexTitlesForTableView(tableView: UITableView) -> [AnyObject]! {
+        return Array(self.data.keys)
+    }
+    
+    func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, atIndex index: Int) -> Int {
+        var tpIndex:Int = 0
+        let headers = self.data.keys.array
+        //遍历索引值
+        for character in headers{
+            //判断索引值和组名称相等，返回组坐标
+            if character == title {
+                return tpIndex
+            }
+            tpIndex++
+        }
+        return 0
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return data.count
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if data.count > 0 {
+            let keys = Array(data.keys)
+            let key = keys[section]
+            return data[key]!.count
+        }
         return 0
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(IdentifyConfig.Management, forIndexPath: indexPath) as! UITableViewCell
+        
+        if let umvc = cell as? UserManagementTableViewCell {
+            let item = self.getItemWithIndexPath(indexPath)
+            umvc.nameLabel.text = item?["RealName"].string!
+        }
         return cell
     }
     
@@ -39,18 +76,24 @@ class UserManagementViewController: UIViewController, UITableViewDelegate, UITab
         let userID = self.getCurrentUserID()
         let parameters = [
             "action":"getsupuser",
-            "q1": userID
+            "q0": userID
         ]
         Alamofire.request(.GET, url, parameters: parameters)
             .responseJSON {
                 (req, res, data, error) in
-                
+                println("\(req)")
                 if error != nil {
                     self.view.makeToast(message: "网络错误")
                 } else {
                     let json = JSON(data!)
-                    NSLog("\(json)")
+                    println("\(json)")
                     if !json.isEmpty {
+                        if json["Status"].boolValue {
+                            self.sort(json["ResultObject"])
+                            self.tableView.reloadData()
+                        } else {
+                            self.view.makeToast(message: json["ReturnMsg"].string!)
+                        }
                     }
                 }
         }
@@ -97,5 +140,29 @@ class UserManagementViewController: UIViewController, UITableViewDelegate, UITab
     
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         return UIModalPresentationStyle.None
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            let keys = Array(data.keys)
+            let key = keys[indexPath.section]
+            self.data[key]?.removeAtIndex(indexPath.row)
+            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+        }
+    }
+    
+    private func sort(data: JSON) {
+        self.data["*"] = [JSON]()
+        let end = data.count - 1
+        for i in 0...end {
+            self.data["*"]?.append(data[i])
+        }
+    }
+    
+    private func getItemWithIndexPath(indexPath: NSIndexPath) -> JSON? {
+        let keys = self.data.keys.array
+        let key = keys[indexPath.section]
+        let item = self.data[key]?[indexPath.row]
+        return item
     }
 }

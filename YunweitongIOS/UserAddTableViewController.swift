@@ -87,16 +87,17 @@ class UserAddTableViewController: UITableViewController {
             "User": [
                 "Mobile": phone,
                 "SupplierID": supplierID,
-                "Password": password
+                "Password": password,
+                "UserType": self.userType,
+                "RealName": name,
+                "Active": 1
             ],
             "UserInfo": [
-                "RealName": name,
                 "Email": email,
                 "User_Sex": sex,
                 "Birthday": "/Date(\(birthday))/",
                 "GraduationData": "/Date(2649600000)/",
-                "Create_User": userID,
-                "UserType": self.userType
+                "Create_User": userID
             ]
         ]
         println("\(_userInfo)")
@@ -107,7 +108,7 @@ class UserAddTableViewController: UITableViewController {
         
         self.view.makeToastActivityWithMessage(message: "请稍候...")
         self.submitButton.enabled = false
-        Alamofire.request(.GET, url, parameters: parameters)
+        Alamofire.request(.POST, url, parameters: parameters)
             .responseJSON {
                 (req, res, data, error) in
                 self.view.hideToastActivity()

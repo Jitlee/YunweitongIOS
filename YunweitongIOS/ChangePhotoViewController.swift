@@ -10,6 +10,7 @@ import UIKit
 import MobileCoreServices
 
 class ChangePhotoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    var ImageSize: CGFloat = 96.0
 
     override var preferredContentSize: CGSize {
         get {
@@ -46,7 +47,7 @@ class ChangePhotoViewController: UIViewController, UIImagePickerControllerDelega
         self.presentingViewController?.dismissViewControllerAnimated(false, completion: nil)
         
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            let newImage = imageWidthNewSize(image, scaledToSize: CGSizeMake(96,96))
+            let newImage = imageWidthNewSize(image, scaledToSize: CGSizeMake(ImageSize,ImageSize))
             notificationWithImageChange(newImage)
         }
     }
